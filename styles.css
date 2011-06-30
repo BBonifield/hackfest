@@ -1,0 +1,126 @@
+body {
+  background: #d3863d;
+  margin: 0;
+}
+* {
+  font-family: sans-serif;
+}
+
+body > header {
+  margin: 5px 10px;
+}
+  body > header h1 {
+    color: #fff;
+  }
+
+#controls {
+  margin: 10px;
+}
+#container {
+  margin: 0 10px;
+}
+
+#friends {
+  float: left;
+  margin-left: 10px;
+  width: 65%;
+}
+
+#friends h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+          border-radius: 10px;
+     -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border: 2px solid #a0a0a0;
+  background: #fff;
+  padding: 10px;
+}
+
+#friends ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#friends li {
+  display: inline-block;
+  width: 250px;
+  padding: 15px;
+  margin: 10px;
+  border: 1px solid #000;
+  background: #edf75d;
+  overflow: hidden;
+          border-radius: 5px;
+     -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+#friends li:hover {
+  background: #fff;
+          box-shadow: 0 0 8px #000;
+     -moz-box-shadow: 0 0 8px #000;
+  -webkit-box-shadow: 0 0 8px #000;
+          transform: scale(1.1);
+     -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+          transition: all 0.2s linear;
+     -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+}
+
+#friends li img {
+  border: 1px solid #fff;
+  background: #fff;
+  vertical-align: top;
+  width: 50px;
+  height: 50px;
+          transform: rotate(5deg);
+     -moz-transofrm: roate(5deg);
+  -webkit-transform: rotate(5deg);
+          border-radius: 2px;
+     -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+          box-shadow: 2px 2px 2px #000;
+     -moz-box-shadow: 2px 2px 2px #000;
+  -webkit-box-shadow: 2px 2px 2px #000;
+  padding-bottom: 4px;
+  margin-right: 8px;
+}
+
+#friends li a {
+  color: #000;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+#tags {
+  float: left;
+  display: block;
+  height: 500px;
+  width: 30%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#tagCloud {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#tagCloud a {
+  display: block;
+  min-height: 20px;
+  font-size: 15px;
+  padding: 5px;
+  background: #fff;
+}
+
+#tagCloud a:hover {
+  background: #6cb066;
+}
+
+#tagCloud a {
+  color: #000;
+}

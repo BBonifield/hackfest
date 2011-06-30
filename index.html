@@ -1,57 +1,66 @@
 <!DOCTYPE html>
-<head>
-  <meta charset="utf-8">
-
-  <title>June 2011 - API Mashup Smashup</title>
-  
-  <style type="text/css" media="screen">
-    body { font-family: Helvetica; } /* obvi */
-    header, section { margin: 0 auto; width: 600px; color: #666; }
-    a { text-decoration: none; color: #333; background: #eee; padding: 1px 3px; }
-  </style>
-</head>
-
-<body>
-
-  <div id="container">
-    <header>
-      <h1>API Mashup Smashup</h1>
-      <h2>Quick Left Hackfest June 2011</h2>
-    </header>
-    <section>
-      <p>Welcome.
-      <p>This month we are focusing on public API integration/mashup/utility/debauchery.<br />
-        Services that group various services' APIs like <a href="http://mashery.com">Mashery</a>, <a href="http://3scales.net">3scale</a>, and <a href="http://apigee.com"><strong>Apigee</strong></a> are becoming more and more prevalent and automatically lend themselves to API mashup goodness-- that is squashing up a couple different services via their API to make a (better?) standalone product.
-      <p>So, leveraging one of the above company's tools (have you seen <a href="https://apigee.com/console">Apigee's console</a>?!), or your own knowledge of independent APIs, let the smashing good time begin!
-      <h3>The Rules:</h3>
-      <ul>
-        <li>Use a least 2 services
-        <li>3 gets you bonus points
-        <li>Language/platform agnostic
-        <li>Team size: 1-4
-        <li>Pairs strongly encouraged
-        <li>No paid access APIs
-        <li>No scrapers
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:fb="http://www.facebook.com/2008/fbml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>QLMashup</title>
+    <script type="text/html" id="friendsTpl">
+      <h3>{{count}} friends</h3>
+      <ul>{{#friends}}
+        <li class="friend" data-friendId="{{id}}">
+          <img src="http://graph.facebook.com/{{id}}/picture" />
+          <a href="http://www.facebook.com/profile.php?id={{id}}" target="_blank">{{name}}</a>
+          <br/>
+          <br/>
+          <br/>
+        </li>
+      {{/friends}}</ul>
+    </script>
+    <script type="text/html" id="friendDetailsTpl">
+      {{#hasBandLikes}}
+        {{#bands}}
+          {{name}}<br/>
+        {{/bands}}
+      {{/hasBandLikes}}
+      {{^hasBandLikes}}
+        WTF, I guess someone doesn't like anything at all...
+      {{/hasBandLikes}}
+    </script>
+    <script type="text/html" id="tagCloudTpl">
+      <ul id="tagCloud">
+      {{#tags}}
+        <li><a href="#circle">{{name}}</a></li>
+      {{/tags}}
       </ul>
-      <h3>Process:</h3>
-      <ol>
-        <li>Fork
-        <li>Make
-        <li>Pull request
-      </ol>
-      <p><small>Need help? Ask any Quick Lefter.</small>
-      <h3>Judgement:</h3>
-      <p>Judged entirely on <font color="red">radness<!-- like the font tag! --></font>.
-      <p>Breaking away from the usual twitter mashup will put you ahead of the competition, we suggest looking into alternative data sources [like <a href="http://services.sunlightlabs.com/">Sunlight's Congress API</a> (with JSONP goodness)].
-      <p>Your pair/team/self will be given 5 minutes to present (our platform or yours), in the order the pull requests were received, in front of our entirely unbiased and completely qualified panel.
-      <p>Hard code stop is at 9pm, so get to nomming the JSON (or XML...)!
+    </script>
+    <link href="styles.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <h1>QLMashup - <span id="status">App Loading</span></h1>
+    </header>
+    <section id="controls">
+      <p><fb:login-button autologoutlink="true" perms="email,user_work_history,friends_work_history,user_website,friends_website,user_likes,friends_likes"></fb:login-button></p>
+      <input type="button" value="Do eet" id="doit" />
+    </div>
+    <section id="container">
+      <div id="tags"></div>
+      <div id="friends"></div>
     </section>
-  </div>
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.1.min.js">\x3C/script>')</script>
+    <!-- JavaScript at the bottom for fast page loading -->
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript">window.jQuery || document.write('<script src="js/libs/jquery-1.6.1.min.js"><\/script>')</script>
+    <script type="text/javascript" src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/thinkdevcode/jQuery-Mustache/master/mustache.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/fxb/javascript-last.fm-api/master/lastfm.api.md5.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/fxb/javascript-last.fm-api/master/lastfm.api.js"></script>
+    <script type="text/javascript" src="app_config.js"></script>
+    <script type="text/javascript" src="app_logic.js"></script>
 
-  <script src="js/script.js"></script>
-
-</body>
+    <div id="fb-root"></div>
+    <script src="fbinit.js"></script>
+    <script type="text/javascript" src="lastfminit.js"></script>
+  </body>
 </html>
